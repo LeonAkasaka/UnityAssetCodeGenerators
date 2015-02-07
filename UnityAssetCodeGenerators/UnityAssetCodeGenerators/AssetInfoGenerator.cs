@@ -33,9 +33,9 @@ public class AssetInfoGenerator : EditorWindow
     private static IEnumerable<string> ToMemberName(string fileName)
     {
         return Directory.GetFiles(fileName)
-            .Select(x => Path.GetFileNameWithoutExtension(x))
-            .Select(x => x.Replace('.', '_'))
-            .Select(x => x.Trim());
+            .Select(x =>
+                 Path.GetFileNameWithoutExtension(x).Replace('.', '_').Trim()
+            );
     }
 
     private static IEnumerable<string> SelectedAssetPaths(IEnumerable<UnityEngine.Object> selectedAssets)
@@ -44,5 +44,4 @@ public class AssetInfoGenerator : EditorWindow
             .Select(x => AssetDatabase.GetAssetPath(x))
             .Where(x => Directory.Exists(x));
     }
-
 }
