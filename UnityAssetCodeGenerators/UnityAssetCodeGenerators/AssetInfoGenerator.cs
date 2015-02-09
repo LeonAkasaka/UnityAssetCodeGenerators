@@ -11,6 +11,7 @@ public class AssetInfoGenerator : EditorWindow
     {
         var paths = SelectedAssetPaths(Selection.objects);
         var codes = paths.Select(x => PathToCode(x));
+
         foreach (var code in codes)
         {
             Debug.Log(code.TypeName);
@@ -20,22 +21,9 @@ public class AssetInfoGenerator : EditorWindow
         }
     }
 
-    private static AssetInfoCodeDefinition PathToCode(string x)
+    private static AssetInfoCodeDefinition PathToCode(string path)
     {
-        return new AssetInfoCodeDefinition() { TypeName = ToTypeName(x), Members = ToMemberName(x) };
-    }
-
-    private static string ToTypeName(string fileName)
-    {
-        return Path.GetFileName(fileName);
-    }
-
-    private static IEnumerable<string> ToMemberName(string fileName)
-    {
-        return Directory.GetFiles(fileName)
-            .Select(x =>
-                 Path.GetFileNameWithoutExtension(x).Replace('.', '_').Trim()
-            );
+        return new AssetInfoCodeDefinition(path);
     }
 
     private static IEnumerable<string> SelectedAssetPaths(IEnumerable<UnityEngine.Object> selectedAssets)
