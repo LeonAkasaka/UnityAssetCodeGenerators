@@ -7,8 +7,8 @@
     <ProjectGuid>{FE315D87-451B-4C60-92E9-311D3FD0BC5A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AssetAnnotations</RootNamespace>
-    <AssemblyName>AssetAnnotations</AssemblyName>
+    <RootNamespace>Levolution.Unity.AssetAnnotations</RootNamespace>
+    <AssemblyName>Levolution.Unity.AssetAnnotations</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -38,7 +38,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssetInfo.cs" />
+    <Compile Include="AssetAnnotation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

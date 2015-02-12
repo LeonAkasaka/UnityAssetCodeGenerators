@@ -7,8 +7,8 @@
     <ProjectGuid>{81101AD9-519A-4BE1-A4EC-CBC0D790515D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnityAssetCodeGenerators</RootNamespace>
-    <AssemblyName>UnityAssetCodeGenerators</AssemblyName>
+    <RootNamespace>Levolution.Unity.AssetCodeGenerators</RootNamespace>
+    <AssemblyName>Levolution.Unity.AssetCodeGenerators</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -42,9 +42,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssetInfoCodeDefinition.cs" />
-    <Compile Include="AssetInfoGenerator.cs" />
+    <Compile Include="AssetTypeDefinition.cs" />
+    <Compile Include="AssetAnnotationGenerationWinow.cs" />
+    <Compile Include="AssetAnnotationGenerator.cs" />
+    <Compile Include="AssetMemberDefinition.cs" />
+    <Compile Include="CodeGenerationOption.cs" />
+    <Compile Include="CodeGenerationType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AssetAnnotations\AssetAnnotations.csproj">
+      <Project>{fe315d87-451b-4c60-92e9-311d3fd0bc5a}</Project>
+      <Name>AssetAnnotations</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

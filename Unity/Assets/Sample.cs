@@ -1,7 +1,7 @@
-public enum Sample
+using Levolution.Unity.AssetAnnotations;
+
+public partial class Sample
 {
-	SampleText1,
-	SampleText1_txt,
-	SampleText2,
-	SampleText2_txt,
+	public static readonly AssetAnnotation SampleText1 = new AssetAnnotation(@"Assets/Sample\SampleText1.txt");
+	public static readonly AssetAnnotation SampleText2 = new AssetAnnotation(@"Assets/Sample\SampleText2.txt");
 }
