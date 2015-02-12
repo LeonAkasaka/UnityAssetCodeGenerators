@@ -11,8 +11,6 @@ namespace Levolution.Unity.AssetCodeGenerators
     /// </summary>
     public class AssetTypeDefinition
     {
-        private const string Indent = "\t";
-
         /// <summary>
         /// 
         /// </summary>
@@ -43,37 +41,6 @@ namespace Levolution.Unity.AssetCodeGenerators
             AssetPath = assetPath;
             Name = ToTypeName(assetPath);
             Members = ToMember(assetPath);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            var at = typeof(AssetAnnotation);
-            var sb = new StringBuilder();
-
-            sb.AppendFormat("using {0};", at.Namespace); sb.AppendLine();
-            sb.AppendLine();
-
-            sb.AppendFormat("public partial class {0}", Name); sb.AppendLine();
-            sb.Append("{"); sb.AppendLine();
-
-            var memberFormatText = string.Format("{0}public static readonly {1} {{0}} = new {1}(@\"{{1}}\");", Indent, at.Name);
-            foreach (var m in Members)
-            {
-                sb.AppendFormat(memberFormatText, m.Name, m.AssetPath); sb.AppendLine();
-            }
-
-            if (InnerCodes.Count > 0)
-            {
-                sb.Append(string.Join("\r\n", InnerCodes.Select(x => x.ToString()).ToArray())); sb.AppendLine();
-            }
-
-            sb.Append("}"); sb.AppendLine();
-
-            return sb.ToString();
         }
 
         private static string ToTypeName(string path)

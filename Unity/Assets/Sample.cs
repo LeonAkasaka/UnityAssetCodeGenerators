@@ -1,7 +1,5 @@
-using Levolution.Unity.AssetAnnotations;
-
-public partial class Sample
+public enum Sample
 {
-	public static readonly AssetAnnotation SampleText1 = new AssetAnnotation(@"Assets/Sample\SampleText1.txt");
-	public static readonly AssetAnnotation SampleText2 = new AssetAnnotation(@"Assets/Sample\SampleText2.txt");
+	SampleText1,	// Assets/Sample\SampleText1.txt
+	SampleText2,	// Assets/Sample\SampleText2.txt
 }

@@ -10,5 +10,10 @@ namespace Levolution.Unity.AssetCodeGenerators
         /// 
         /// </summary>
         public CodeGenerationType CodeType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Namespace { get; set; }
     }
 }
