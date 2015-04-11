@@ -16,7 +16,12 @@ namespace Levolution.Unity.AssetCodeGenerators
     {
         private const string Indent = "\t";
 
-        public static void GenerateCode(CodeGenerationOption option)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="option"></param>
+        /// <returns></returns>
+        public static IEnumerable<string> GenerateCode(CodeGenerationOption option)
         {
             var paths = SelectedAssetPaths(Selection.objects);
             var defs = paths.Select(x => PathToAssetTypeDefinition(x));
@@ -24,8 +29,9 @@ namespace Levolution.Unity.AssetCodeGenerators
             foreach (var def in defs)
             {
                 var t = GenerateCode(def, option.CodeType);
-                var fileName = Path.Combine("Assets", def.Name + ".cs");
+                var fileName = Path.Combine(option.OutputPath, def.Name + ".cs");
                 File.WriteAllText(fileName, t);
+                yield return fileName;
             }
         }
 

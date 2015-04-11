@@ -30,9 +30,23 @@ namespace Levolution.Unity.AssetCodeGenerators
             foreach (var codeType in values) { RenderCodeTypeSelector(codeType); }
             GUILayout.EndHorizontal();
 
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Output: ");
+            Option.OutputPath = GUILayout.TextArea(Option.OutputPath);
+            GUILayout.EndHorizontal();
+
             if (GUILayout.Button("OK"))
             {
-                AssetAnnotationGenerator.GenerateCode(Option);
+                var files = AssetAnnotationGenerator.GenerateCode(Option);
+                DebugWriteOutputFiles(files);
+            }
+        }
+
+        private static void DebugWriteOutputFiles(System.Collections.Generic.IEnumerable<string> files)
+        {
+            foreach (var file in files)
+            {
+                Debug.Log(string.Format("Output: {0}", file));
             }
         }
 

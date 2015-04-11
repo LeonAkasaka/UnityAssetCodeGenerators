@@ -7,12 +7,12 @@ namespace Levolution.Unity.AssetCodeGenerators
     public enum CodeGenerationType
     {
         /// <summary>
-        /// 
+        /// Generate code as Class.
         /// </summary>
         Class,
 
         /// <summary>
-        /// 
+        /// Generate code as Enum.
         /// </summary>
         Enum
     }
